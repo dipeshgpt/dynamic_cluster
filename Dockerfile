@@ -3,7 +3,7 @@ EXPOSE 80
 
 RUN yum update -y
 RUN yum install openssh-server -y
-RUN yum install openjdk-8-jre -y
+RUN yum install java-1.8.0-openjdk -y
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
