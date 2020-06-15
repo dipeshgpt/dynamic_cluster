@@ -1,8 +1,9 @@
 FROM vimal13/apache-webserver-php
 EXPOSE 80
 
-
-RUN yum install openssh-server openjdk-8-jre -y
+RUN yum update -y
+RUN yum install openssh-server -y
+RUN yum install openjdk-8-jre -y
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
